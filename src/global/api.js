@@ -5431,11 +5431,16 @@ export function redo(options = {}) {
 export function getAllSheets() {
     let data = $.extend(true, [], Store.luckysheetfile);
 
+    var handleChartsData = Store.chartparam ? Store.chartparam.handleChartsData : null;
     data.forEach((item, index, arr) => {
         if(item.data != null && item.data.length > 0){
             item.celldata = sheetmanage.getGridData(item.data);
         }
 
+        // 处理图表配置数据并完整返回
+        if(typeof handleChartsData == 'function'){
+          handleChartsData(item.chart);
+        }
         delete item.load;
         delete item.freezen;
 

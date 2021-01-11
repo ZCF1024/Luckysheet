@@ -118,7 +118,21 @@ function chart(data, isDemo) {
         Store.chartparam.updateChart = chartmix.default.updateChart
         Store.chartparam.storeDelete = {}   // 存放删除的图表
         Store.chartparam.restoreChart = chartmix.default.restoreChart
-        Store.chartparam.changeChartType = chartmix.default.changeChartType
+        Store.chartparam.changeChartType = chartmix.default.changeChartType;
+
+        /**
+         * 从 luckysheetfile 中获取当前图表的配置信息
+         */
+        chartInfo.chartparam.getCurrentChartFromLuckysheetFile = function () {
+          let sheetFile = chartInfo.luckysheetfile[getSheetIndex(chartInfo.currentSheetIndex)];
+          let charts = sheetFile.chart;
+          for (let chart of charts) {
+            if (chart.chart_id == chartInfo.chartparam.luckysheetCurrentChart) {
+              return chart;
+            }
+          }
+          return null;
+        }
 
         // 初始化渲染图表
         for (let i = 0; i < data.length; i++) {
