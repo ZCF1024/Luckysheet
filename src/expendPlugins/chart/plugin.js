@@ -461,6 +461,9 @@ function restoreCharts(chartLists, isDemo) {
             })
         ).appendTo($('.luckysheet-cell-main'))
 
+        // 设置图表可拖拽区域高亮效果
+        setChartMoveableEffect($t);
+
         let container = document.getElementById(chart_id_c)
         container.style.width = width + 'px'
         container.style.height = height + 'px'
@@ -683,6 +686,9 @@ function renderCharts(chartLists, isDemo) {
                 content: ''
             })
         ).appendTo($('.luckysheet-cell-main'))
+
+        // 设置图表可拖拽区域高亮效果
+        setChartMoveableEffect($t);
 
         $(`#${chart_id_c}`).children('.luckysheet-modal-dialog-content')[0].id = chart_id
 
@@ -2076,6 +2082,9 @@ function insertChart(chart_id, range, style, success) {
         })
     ).appendTo($('.luckysheet-cell-main'))
 
+    // 设置图表可拖拽区域高亮效果
+    setChartMoveableEffect($t);
+
     let container = document.getElementById(chart_id_c)
 
     let width, height, left, top, chartTheme
@@ -2321,6 +2330,24 @@ function insertChart(chart_id, range, style, success) {
             chart_json
         })
     }
+}
+
+/**
+ * 设置图表可拖动区域高亮效果，鼠标经过可拖动区域时鼠标显示“十字”，不可拖动区域显示箭头
+ * @param {JQuery} $container 图表的容器DIV
+ */
+function setChartMoveableEffect($container) {
+    $container.find('.luckysheet-modal-dialog-content').hover(function () {
+        $container.removeClass("chart-moveable");
+    }, function () {
+        $container.addClass("chart-moveable");
+    });
+
+    $container.hover(function () {
+        $container.addClass("chart-moveable");
+    }, function () {
+        $container.removeClass("chart-moveable");
+    });
 }
 
 // delete chart
