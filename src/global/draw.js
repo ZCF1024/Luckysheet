@@ -732,7 +732,11 @@ function luckysheetDrawMain(scrollWidth, scrollHeight, drawWidth, drawHeight, of
             let value = null;
 
             if((typeof cell == "object") && "mc" in cell){
-                mcArr.push(cellupdate[cud]);
+                // 之加入合并单元格的第一个单元格，后面个下面的行列不加入mcArr
+                let mc = cell.mc;
+                if("rs" in mc && "cs" in mc){
+                    mcArr.push(cellupdate[cud]);
+                }
                 // continue;
             }
             else{
