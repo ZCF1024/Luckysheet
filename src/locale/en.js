@@ -8829,6 +8829,7 @@ export default {
     },
     ],
     toolbar: {
+        save: 'Save',
         undo: 'Undo',
         redo: 'Redo',
         paintFormat: 'Paint format',

@@ -9041,6 +9041,7 @@ export default {
     },
     ],
     toolbar: {
+        save: '報存',
         undo               : '撤銷',
         redo               : '重做',
         paintFormat        : '格式刷',

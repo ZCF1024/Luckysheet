@@ -6,6 +6,7 @@ import conditionformat from './conditionformat';
 import server from './server';
 import { luckysheet_searcharray } from './sheetSearch';
 import luckysheetFreezen from './freezen';
+import luckysheetConfigsetting from './luckysheetConfigsetting';
 import luckysheetsizeauto from './resize';
 import { createFilter } from './filter';
 import luckysheetSearchReplace from './searchReplace';
@@ -114,6 +115,14 @@ const menuButton = {
     luckysheetPaintSingle: false,
     initialMenuButton: function(){
         let _this = this;
+
+        //保存
+        $("#luckysheet-icon-save").click(function () {
+            if (luckysheetConfigsetting && luckysheetConfigsetting.hook && luckysheetConfigsetting.hook.onSave) {
+                luckysheetConfigsetting.hook.onSave(luckysheet.getAllSheets());
+            }
+        });
+
 
         //格式刷
         $("#luckysheet-icon-paintformat").click(function(){

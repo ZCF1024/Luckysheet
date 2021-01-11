@@ -812,6 +812,20 @@ function menuToolBar (){
        // <!-- undo -->
        return `<div class="luckysheet-toolbar-left-theme">
         </div>
+        <div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.save}"
+        id="luckysheet-icon-save" role="button" style="user-select: none;">
+            <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"
+            style="user-select: none;">
+                <div class="luckysheet-toolbar-button-inner-box luckysheet-inline-block"
+                style="user-select: none;">
+                    <div class="luckysheet-icon luckysheet-inline-block " style="user-select: none;">
+                        <div aria-hidden="true" class="luckysheet-icon-img-container luckysheet-icon-img luckysheet-icon-save iconfont luckysheet-iconfont-baocun"
+                        style="user-select: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="luckysheet-toolbar-button luckysheet-inline-block" data-tips="${toolbar.undo}"
         id="luckysheet-icon-undo" role="button" style="user-select: none;">
             <div class="luckysheet-toolbar-button-outer-box luckysheet-inline-block"

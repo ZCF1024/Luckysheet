@@ -304,6 +304,10 @@ export function menuToolBarWidth() {
     const toobarWidths = Store.toobarObject.toobarWidths = [];
     const toobarElements = Store.toobarObject.toobarElements = [];
     const toobarConfig = Store.toobarObject.toobarConfig = {
+        save: {
+            ele: '#luckysheet-icon-save',
+            index: -1,
+        },
         undo: {
             ele:'#luckysheet-icon-undo',
             index:0,

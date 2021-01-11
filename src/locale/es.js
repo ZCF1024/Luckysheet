@@ -8829,6 +8829,7 @@ export default {
     },
     ],
     toolbar: {
+        save: 'Reporte',
         undo: 'Deshacer',
         redo: 'Rehacer',
         paintFormat: 'Clonar formato',

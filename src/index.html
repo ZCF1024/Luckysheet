@@ -93,6 +93,9 @@
 						}
 					],
 					hook:{
+            onSave: function (datas) {
+                console.info("onSave", datas);
+            },
 						rowTitleCellRenderBefore:function(rowNum,postion,ctx){
 							// console.log(rowNum);
 						},
