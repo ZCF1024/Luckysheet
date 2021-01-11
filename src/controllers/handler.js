@@ -2443,6 +2443,12 @@ export default function luckysheetHandler() {
 
                     Store.chartparam.luckysheetCurrentChartMoveObj.css({ "top": top, "left": left });
 
+                    // 更新图表的位置信息
+                    let currentChartConfig = Store.chartparam.getCurrentChartFromLuckysheetFile();
+                    currentChartConfig.top = top;
+                    currentChartConfig.left = left;
+
+
                     if (luckysheetFreezen.freezenhorizontaldata != null || luckysheetFreezen.freezenverticaldata != null) {
                         luckysheetFreezen.scrollAdapt();
 
@@ -2514,6 +2520,14 @@ export default function luckysheetHandler() {
                     }
 
                     const resizedata = { "top": top, "left": left, "height": height, "width": width };
+
+                    // 更新图表配置中的位置和大小信息
+                    let currentChartConfig = Store.chartparam.getCurrentChartFromLuckysheetFile();
+                    currentChartConfig.top = top;
+                    currentChartConfig.left = left;
+                    currentChartConfig.height = height;
+                    currentChartConfig.width = width;
+
                     Store.chartparam.luckysheetCurrentChartResizeObj.css(resizedata);
                     // resize chart
                     Store.resizeChart(Store.chartparam.luckysheetCurrentChart)
