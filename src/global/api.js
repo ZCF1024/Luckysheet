@@ -5430,7 +5430,8 @@ export function redo(options = {}) {
  */
 export function getAllSheets() {
     let data = $.extend(true, [], Store.luckysheetfile);
-
+    
+    console.info("Store.chartparam.handleChartsData", Store.chartparam.handleChartsData);
     var handleChartsData = Store.chartparam ? Store.chartparam.handleChartsData : null;
     data.forEach((item, index, arr) => {
         if(item.data != null && item.data.length > 0){

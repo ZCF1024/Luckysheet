@@ -120,14 +120,23 @@ function chart(data, isDemo) {
         Store.chartparam.restoreChart = chartmix.default.restoreChart
         Store.chartparam.changeChartType = chartmix.default.changeChartType;
 
+        Store.chartparam.handleChartsData = function (charts) {
+          if (Array.isArray(charts)) {
+            charts.forEach(chart => {
+              // 获取图表的完整配置数据并返回
+              chart.chartOptions = $.extend(true, {}, chartmix.default.getChartJson(chart.chart_id));
+            });
+          }
+        }
+
         /**
          * 从 luckysheetfile 中获取当前图表的配置信息
          */
-        chartInfo.chartparam.getCurrentChartFromLuckysheetFile = function () {
-          let sheetFile = chartInfo.luckysheetfile[getSheetIndex(chartInfo.currentSheetIndex)];
+        Store.chartparam.getCurrentChartFromLuckysheetFile = function () {
+          let sheetFile = Store.luckysheetfile[getSheetIndex(Store.currentSheetIndex)];
           let charts = sheetFile.chart;
           for (let chart of charts) {
-            if (chart.chart_id == chartInfo.chartparam.luckysheetCurrentChart) {
+            if (chart.chart_id == Store.chartparam.luckysheetCurrentChart) {
               return chart;
             }
           }
